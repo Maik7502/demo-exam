@@ -6,3 +6,4 @@ chmod +x xampp-linux-x64-8.2.12-0-installer.run
 нужно воить от админа 
 smod +x нужна для того можно запустить фаил. .\ запускаит команду
 БОМ 2.0 https://bom.firpo.ru/Public/2645
+опт, лам
