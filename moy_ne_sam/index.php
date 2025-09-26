@@ -9,9 +9,9 @@
 </head>
 <body>
     <header> <img src='images/screen-7.jpg' alt='логотип'>
-    <h1>мой не сам</h1>
-</header>
-<nav>
+        <h1>мой не сам</h1>
+    </header>
+    <nav>
     <a href="/demo-exam/moy_ne_sam">Главное</a>
     <a href="/demo-exam/moy_ne_sam/admin">админ</a>
 </nav> 
