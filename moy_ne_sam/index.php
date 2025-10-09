@@ -8,16 +8,29 @@
     <link rel='stylesheet' href='style/style.css'>
 </head>
 <body>
-    <header> <img src='images/screen-7.jpg' alt='логотип'>
-        <h1>мой не сам</h1>
+    <header> 
+    <img src='images/screen-7.jpg' alt='логотип'>
+    <h1>мой не сам</h1>
     </header>
-    <nav>
+<nav>
     <a href="/demo-exam/moy_ne_sam">Главное</a>
     <a href="/demo-exam/moy_ne_sam/admin">админ</a>
 </nav> 
+
 <main>
-</main>
-<footer>2025<footer>
-    <script src='script/script.js'></script>
+<h1>Авторизаци</h1>
+    <ladel>Логин
+        <input type="text" name="Login">
+    </ladel>
+    <ladel>Пароль
+        <input type="text" name="Login">
+    </ladel>
+    <button>Вход</button>
+    <p class="Error"></p>
+    <footer>
+    <h3>2025</h3>
+    </footer>
+    </main>
+<script src='script/script.js'></script>
 </body>
 </html>
