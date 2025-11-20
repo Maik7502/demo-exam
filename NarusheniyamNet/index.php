@@ -1,28 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>НарушениямНет</title>
-    <link rel='icon' href='images/logo.jpg'>
-    <link rel='stylesheet' href='css/style.css'>
-</head>
-<body>
-    <header> <img src='images/logo.jpg' alt='логотип'>
-        <h1>НарушениямНет</h1>
-    </header>
+<?php
+session_start(); 
+$pageTitle = 'Авторизация';
+require_once "struktura.php";
+$loginError = '';
+if (isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+    if ($user['user_type_id'] == 2) {
+        header("Location: admin.php");
+        exit();
+    } else {
+        header("Location: zayavka.php");
+        exit();
+    }
+}
 
-    <nav>
-        <a href="/demo-exam/NarusheniyamNet">Главная</a>
-        <a href="/demo-exam/NarusheniyamNet/admin">Админ-панель</a>
-    </nav>
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $login = $_POST["login"] ?? "";
+    $password = $_POST["password"] ?? "";
+    $login = strip_tags($login);
+    $password = strip_tags($password);
+    
+    $user = find($login, $password); 
+    if ($user) {
+        $_SESSION['user'] = $user; 
+        if ($user['user_type_id'] == 2) {
+            header("Location: admin.php");
+            exit();
+        } else {
+            header("Location: zayavka.php");
+            exit();
+        }
+    } else {
+        $loginError = "Неверный логин или пароль.";
+    }
+}
+?>
 
-    <main>    
-        <footer>
-            <h3>2025</h3>
-        <footer>
-    </main>
+<main>    
+    <form method="post" action="index.php">
+        <label>Логин
+            <input type="text" name="login" required value="<?php echo htmlspecialchars($login ?? ''); ?>" autocomplete="username">
+        </label>
+        <label>Пароль
+            <input type="password" name="password" required autocomplete="current-password">
+        </label>
+        <button type="submit">Вход</button>
+    </form>
 
-    <script src="js/script.js"></script>
-</body>
-</html>
+    <?php if (!empty($loginError)): ?>
+        <p class="Error"><?php echo htmlspecialchars($loginError); ?></p>
+    <?php endif; ?>
+</main>

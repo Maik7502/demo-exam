@@ -1,35 +1,39 @@
-* {
+*{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-self: center;
 }
 
-img {
+img{
     width: 100px;
     height: auto;
 }
 
-nav {
+nav{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
 }
 
-main {
+main{
     display: flex;
     align-items: center;
     flex: 1;
-    flex-direction: column;    
+    flex-direction: column;
 }
 
-footer {
+footer{
     display: flex;
     align-items: center;
     position: fixed;
     bottom: 0px;
+}
+
+.Error {
+    color: Red;
 }
